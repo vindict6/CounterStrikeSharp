@@ -99,6 +99,7 @@ void* GetEntityPointerFromHandle(ScriptContext& scriptContext)
 
 void DispatchSpawn(ScriptContext& scriptContext)
 {
+    if (!CBaseEntity_DispatchSpawn) return;
     auto entity = scriptContext.GetArgument<void*>(0);
     auto keyValues = scriptContext.GetArgument<CEntityKeyValues*>(1);
     CBaseEntity_DispatchSpawn(entity, keyValues);
